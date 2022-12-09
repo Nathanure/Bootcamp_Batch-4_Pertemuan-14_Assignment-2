@@ -1,0 +1,42 @@
+<%- contentFor('content') %>
+<main>
+    <div class="container">
+        <h1 class="text-center my-5">Contact Details</h1>
+        <!-- Branch for contact, if data is not found in JSON -->
+        <% if (contact === undefined) { %>
+        <p class="fs-5 text-center my-5">"<%= url %>" not found</p>
+        <% } else { %>
+        <!-- Display data that is in JSON -->
+        <!-- d-flex to make the childs flexible and inline -->
+        <div class="d-flex justify-content-center">
+            <!-- Card to contain it -->
+            <div class="card rounded-4 border border-success border-3">
+                <!-- d-flex to make the both of childs inline and flexible -->
+                <div class="d-flex gap-3 p-4">
+                    <!-- Left side -->
+                    <div class="d-grid gap-3 fw-bold">
+                        <p class="my-0">Nama</p>
+                        <p class="my-0">Email</p>
+                        <p class="my-0">Phone Number</p>
+                    </div>
+                    <!-- Right side -->
+                    <div class="d-grid gap-3">
+                        <p class="my-0">: <%= contact.name %></p>
+                        <p class="my-0">: <%= contact.email %></p>
+                        <p class="my-0">: <%= contact.mobile %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <!-- Anchor to return back to contact page -->
+        <div class="d-flex justify-content-center my-4">
+            <a
+                type="button"
+                href="/contact"
+                class="btn btn-danger rounded-4 px-3 py-2"
+                >Back to Contact</a
+            >
+        </div>
+    </div>
+</main>
